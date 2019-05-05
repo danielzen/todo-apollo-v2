@@ -7,9 +7,9 @@
 ## Technology stack
 
 This application integrates the following technologies:
-- [Apollo Client 2.0](http://dev.apollodata.com) to communicate with GraphQL Server
+- [Apollo Client 2.5](http://dev.apollodata.com) to communicate with GraphQL Server
 - [graphcool](http://graph.cool) providing the GraphQL Server
-- [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0
+- [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8
 
 ## Usage
 
@@ -17,14 +17,14 @@ You can add todos and toggle their status. If you open different windows each wi
 
 ## Development
 
-If you have any questions feel free to ping me on [@gerardsans](http://twitter.com/gerardsans).
+This was based on an original example by [@gerardsans](http://twitter.com/gerardsans).
 
 ### Install
 
 First, clone the repo via git:
 
 ```bash
-$ git clone https://github.com/gsans/todo-apollo-v2.git
+$ git clone https://github.com/danielzen/todo-apollo-v2.git
 ```
 
 And then install dependencies:
@@ -88,4 +88,4 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 <img src="./src/images/partyparrot.png" />
 
 ## License
-MIT © [Gerard Sans](https://github.com/gsans)
+MIT © [Gerard Sans](https://github.com/gsans) & [Daniel Zen](https://github.com/danielzen)

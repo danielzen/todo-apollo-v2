@@ -1,0 +1,62 @@
+<flip [flipped]="flipped">
+  <flip-front class="front">
+    <mat-card class="card" [ngClass]="{'flipped': flipped}">
+      <mat-card-header style="flex-direction: column;">
+        <div class="box">
+          <div class="title" (click)="flipped=!flipped">{{title}}
+            <mat-icon>info</mat-icon>
+          </div>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <add-todo></add-todo>
+        <div *ngIf="!loading&&todos?.length>0">
+          <mat-tab-group mat-stretch-tabs="yes" (selectedTabChange)="setFilter($event)">
+            <mat-tab label="All"></mat-tab>
+            <mat-tab label="Active"></mat-tab>
+            <mat-tab label="Completed"></mat-tab>
+          </mat-tab-group>
+        </div>
+        <mat-spinner *ngIf="loading"></mat-spinner>
+        <div class="message box" *ngIf="!loading && todos?.length<1">Ups! There are no todos yet...</div>
+        <todo-list [todos]="todos" [currentFilter]="currentFilter"></todo-list>
+      </mat-card-content>
+      <mat-card-footer>
+        <div class="subtitle">Made in New York & London</div>
+      </mat-card-footer>
+    </mat-card>
+  </flip-front>
+  <flip-back class="back">
+    <mat-card class="card">
+      <mat-card-header style="flex-direction: column;">
+        <div class="box">
+          <div class="title" (click)="flipped=!flipped">{{title}}
+            <mat-icon>info</mat-icon>
+          </div>
+          <mat-chip-list>
+            <mat-chip disabled>Angular v7</mat-chip>
+            <mat-chip disabled>Apollo Client v2.5</mat-chip>
+            <mat-chip disabled>Queries</mat-chip>
+            <mat-chip disabled>Mutations</mat-chip>
+            <mat-chip disabled>Subscriptions</mat-chip>
+          </mat-chip-list>
+          <div class="logos">
+            <img matTooltip="Angular v5" style="height:60px;margin: 10px -5px 0 -5px;"
+                 src="https://angular.io/assets/images/logos/angular/angular.png" class="image">
+            <img matTooltip="Apollo Client v2" style="height:60px;margin: 10px -5px 0 -2px;"
+                 src="http://www.discovermeteor.com/images/blog/apollo-logo.png" class="image">
+            <img matTooltip="GraphQL"
+                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/1024px-GraphQL_Logo.svg.png"
+                 class="image">
+            <img matTooltip="graphcool" src="http://graphcool-random.s3.amazonaws.com/images/logo-green.svg" class="image">
+          </div>
+        </div>
+      </mat-card-header>
+      <mat-card-content class="empty">
+      </mat-card-content>
+      <mat-card-footer>
+        <div class="subtitle">Made in New York & London</div>
+      </mat-card-footer>
+    </mat-card>
+  </flip-back>
+</flip>

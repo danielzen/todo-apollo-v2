@@ -1,25 +1,25 @@
 export interface Todo {
-  id: string,
-  text?: string,
-  complete?: boolean 
+  id: string;
+  text?: string;
+  complete?: boolean;
 }
 export interface CreateTodo {
-  createTodo: Todo
+  createTodo: Todo;
 }
 export interface CreateTodoResponse {
-  data: CreateTodo
+  data: CreateTodo;
 }
 export interface Todos {
-  allTodoes: Array<Todo>
+  allTodoes: Array<Todo>;
 }
 
 export interface TodosResponse {
-  data: Todos
+  data: Todos;
 }
 
 export interface ToggleTodo {
-  updateTodo: Todo
+  updateTodo: Todo;
 }
 export interface ToggleTodoResponse {
-  data: ToggleTodo
+  data: ToggleTodo;
 }

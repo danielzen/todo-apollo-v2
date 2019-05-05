@@ -1,10 +1,11 @@
-import { Component, Input, trigger, state, style, transition, animate } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'flip-front, flip-back',
   template: `<ng-content></ng-content>`
 })
-export class FlipSection { }
+export class FlipSectionComponent { }
 
 @Component({
   selector: 'flip',
@@ -47,7 +48,7 @@ export class FlipSection { }
       state('flipped', style({ transform: 'rotateY(180deg)' })),
       state('unflipped', style({ transform: 'rotateY(0)' })),
       transition('* => *', animate('400ms ease-in-out'))
-    ])  
+    ])
   ]
 })
 export class FlipComponent {

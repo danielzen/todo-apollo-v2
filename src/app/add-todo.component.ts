@@ -22,7 +22,7 @@ import { CreateTodoResponse, Todos } from './types';
     }
     .field {
       width: 100%;
-      margin: 0px 20px 0px 20px;
+      margin: 0 20px 0 20px;
     }
     .todo-input {
       overflow: hidden;

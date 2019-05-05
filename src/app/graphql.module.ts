@@ -1,13 +1,13 @@
-import {NgModule} from '@angular/core';
-import {Apollo, ApolloModule} from 'apollo-angular';
-import {HttpClientModule, HttpHeaders} from '@angular/common/http';
-import {HttpLink, HttpLinkModule} from 'apollo-angular-link-http';
-import {InMemoryCache} from 'apollo-cache-inmemory';
+import { NgModule } from '@angular/core';
+import { Apollo, ApolloModule } from 'apollo-angular';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpLink, HttpLinkModule } from 'apollo-angular-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import {ApolloLink, concat} from 'apollo-link';
-import {SubscriptionClient} from 'subscriptions-transport-ws';
-import {WebSocketLink} from 'apollo-link-ws';
-import {getOperationAST} from 'graphql';
+import { ApolloLink, concat } from 'apollo-link';
+import { SubscriptionClient } from 'subscriptions-transport-ws';
+import { WebSocketLink } from 'apollo-link-ws';
+import { getOperationAST } from 'graphql';
 
 @NgModule({
   imports: [
@@ -26,12 +26,12 @@ export class GraphQLModule {
     const link = this.setupLink();
     const cache = new InMemoryCache();
 
-    apollo.create({ link, cache });
+    apollo.create({link, cache});
   }
 
   private setupLink() {
     // queries and mutations link (http)
-    const http = this.httpLink.create({ 
+    const http = this.httpLink.create({
       uri: 'https://api.graph.cool/simple/v1/ADD_YOUR_API_KEY_HERE'
     });
 
@@ -44,11 +44,11 @@ export class GraphQLModule {
 
     const authMiddleware = new ApolloLink((operation, forward) => {
       operation.setContext({
-        headers: { 'Authorization': localStorage.getItem('Auth0IdToken') || '' }
+        headers: {'Authorization': localStorage.getItem('Auth0IdToken') || ''}
       });
       return forward(operation);
     });
-    
+
     const link = ApolloLink.split(
       this.isSubscription,
       /* if true use  */ websocket,
